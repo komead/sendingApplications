@@ -8,4 +8,5 @@ public interface GoodsInfoService {
     boolean barcodeIsExist(String barcode);
     List<GoodsInfo> getAllByName(String name);
     List<GoodsInfo> getAll();
+
 }
