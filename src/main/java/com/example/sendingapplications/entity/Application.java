@@ -1,6 +1,7 @@
 package com.example.sendingapplications.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,12 +18,13 @@ public class Application {
     private int id;
 
     @Column(nullable = false)
-    private int number;
+    private String number;
 
     @Column
     @JsonIgnore
     private String description;
 
     @OneToMany(mappedBy = "application")
+    @JsonProperty("products")
     private List<ApplicationDetails> applicationDetails = new ArrayList<>();
 }
