@@ -21,10 +21,8 @@ public class Application {
     private String number;
 
     @Column
-    @JsonIgnore
     private String description;
 
     @OneToMany(mappedBy = "application")
-    @JsonProperty("products")
     private List<ApplicationDetails> applicationDetails = new ArrayList<>();
 }

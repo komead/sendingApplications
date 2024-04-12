@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "goods_info")
+@Table(name = "products")
 @Data
-public class GoodsInfo {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore

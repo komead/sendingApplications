@@ -1,7 +1,7 @@
 package com.example.sendingapplications.controller;
 
-import com.example.sendingapplications.entity.GoodsInfo;
-import com.example.sendingapplications.service.GoodsInfoService;
+import com.example.sendingapplications.entity.Product;
+import com.example.sendingapplications.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,20 +14,20 @@ import java.util.List;
 @RequestMapping("/barcodes")
 @AllArgsConstructor
 public class BarcodeController {
-    private GoodsInfoService goodsInfoService;
+    private ProductService productService;
 
     @GetMapping("/exist/{data}")
     public boolean isExist(@PathVariable(value = "data") String barcode) {
-        return goodsInfoService.barcodeIsExist(barcode);
+        return productService.barcodeIsExist(barcode);
     }
 
     @GetMapping("/all/{name}")
-    public List<GoodsInfo> allByName(@PathVariable(value = "name") String name) {
-        return goodsInfoService.getAllByName(name);
+    public List<Product> allByName(@PathVariable(value = "name") String name) {
+        return productService.getAllByName(name);
     }
 
     @GetMapping("/all")
-    public List<GoodsInfo> all() {
-        return goodsInfoService.getAll();
+    public List<Product> all() {
+        return productService.getAll();
     }
 }

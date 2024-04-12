@@ -1,18 +1,17 @@
 package com.example.sendingapplications.transformers;
 
-import com.example.sendingapplications.dto.ProductDto;
+import com.example.sendingapplications.dto.ProductForApplicationDto;
 import com.example.sendingapplications.entity.ApplicationDetails;
 import lombok.Data;
 
-@Data
 public class ApplicationDetailsTransformer {
-    public ProductDto toDto(ApplicationDetails applicationDetails) {
-        ProductDto productDto = new ProductDto();
+    public ProductForApplicationDto toProductForApplicationDto(ApplicationDetails applicationDetails) {
+        ProductForApplicationDto productForApplicationDto = new ProductForApplicationDto();
 
-        productDto.setTitle(applicationDetails.getGoodsInfo().getName());
-        productDto.setGtin(applicationDetails.getGoodsInfo().getBarcode());
-        productDto.setCount(applicationDetails.getQuantity());
+        productForApplicationDto.setTitle(applicationDetails.getProduct().getName());
+        productForApplicationDto.setGtin(applicationDetails.getProduct().getBarcode());
+        productForApplicationDto.setCount(applicationDetails.getQuantity());
 
-        return productDto;
+        return productForApplicationDto;
     }
 }

@@ -23,13 +23,11 @@ public class ApplicationController {
 
     @GetMapping("/all")
     public List<ApplicationDto> getAll() {
-        List<Application> old = applicationService.getAll();
         List<ApplicationDto> forSend = new ArrayList<>();
 
         ApplicationTransformer applicationTransformer = new ApplicationTransformer();
-        for (Application appl : old) {
+        for (Application appl : applicationService.getAll())
             forSend.add(applicationTransformer.toDto(appl));
-        }
 
         return forSend;
     }

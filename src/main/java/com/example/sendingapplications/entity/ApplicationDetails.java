@@ -15,12 +15,11 @@ public class ApplicationDetails {
 
     @ManyToOne
     @JoinColumn(name = "application_id")
-    @JsonIgnore
     private Application application;
 
-    @OneToOne
-    @JoinColumn(name = "goods_id")
-    private GoodsInfo goodsInfo;
+    @ManyToOne
+    @JoinColumn(name = "products_id")
+    private Product product;
 
     @Column
     private int quantity;

@@ -8,5 +8,9 @@ import java.util.List;
 @Data
 public class ApplicationDto {
     private String id;
-    List<ProductDto> products = new ArrayList<>();
+    List<ProductForApplicationDto> products = new ArrayList<>();
+
+    public void addProduct(ProductForApplicationDto productForApplicationDto) {
+        products.add(productForApplicationDto);
+    }
 }
