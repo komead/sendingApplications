@@ -9,7 +9,7 @@ public class ApplicationDetailsTransformer {
         ProductForApplicationDto productForApplicationDto = new ProductForApplicationDto();
 
         productForApplicationDto.setTitle(applicationDetails.getProduct().getName());
-        productForApplicationDto.setGtin(applicationDetails.getProduct().getBarcode());
+        productForApplicationDto.setGtin(applicationDetails.getProduct().getGtin());
         productForApplicationDto.setCount(applicationDetails.getQuantity());
 
         return productForApplicationDto;

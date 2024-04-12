@@ -14,8 +14,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public boolean barcodeIsExist(String barcode) {
-        return productRepository.existsByBarcode(barcode);
+    public boolean barcodeIsExist(String gtin) {
+        return productRepository.existsByGtin(gtin);
     }
 
     @Override

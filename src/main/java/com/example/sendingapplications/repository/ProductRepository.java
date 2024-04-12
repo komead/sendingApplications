@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-    boolean existsByBarcode(String barcode);
+    boolean existsByGtin(String gtin);
     List<Product> findAllByName(String name);
 }

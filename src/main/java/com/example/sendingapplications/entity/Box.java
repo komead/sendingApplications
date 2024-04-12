@@ -4,18 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "products")
+@Table(name = "boxes")
 @Data
-public class Product {
+public class Box {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private int id;
 
     @Column(nullable = false)
-    private String name;
+    private String barcode;
 
-    @Column(nullable = false)
-    private String gtin;
+    @OneToMany(mappedBy = "box")
+    private List<ProductInfo> productInfo = new ArrayList<>();
 }
