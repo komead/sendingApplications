@@ -23,6 +23,9 @@ public class Application {
     @Column
     private String description;
 
+    @Column(nullable = false)
+    private boolean completed;
+
     @OneToMany(mappedBy = "application")
     private List<ApplicationDetails> applicationDetails = new ArrayList<>();
 }

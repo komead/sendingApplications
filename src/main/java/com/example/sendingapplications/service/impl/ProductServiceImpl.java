@@ -1,6 +1,8 @@
 package com.example.sendingapplications.service.impl;
 
 import com.example.sendingapplications.entity.Product;
+import com.example.sendingapplications.entity.ProductInfo;
+import com.example.sendingapplications.repository.ProductInfoRepository;
 import com.example.sendingapplications.repository.ProductRepository;
 import com.example.sendingapplications.service.ProductService;
 import lombok.AllArgsConstructor;
@@ -12,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
+    private ProductInfoRepository productInfoRepository;
 
     @Override
     public boolean barcodeIsExist(String gtin) {
@@ -26,5 +29,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAll() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public void setUsed(List<String> used) {
+        for (String data : used) {
+            List<ProductInfo> infoList = productInfoRepository.findByPackageNumber(data.substring(data.length() - 3));
+            for (ProductInfo productInfo : infoList) {
+                if (data.contains(productInfo.getProduct().getGtin())) {
+                    productInfo.setUsed(true);
+                    productInfoRepository.save(productInfo);
+                }
+            }
+        }
     }
 }

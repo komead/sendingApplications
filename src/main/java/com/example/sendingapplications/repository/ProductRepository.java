@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     boolean existsByGtin(String gtin);
     List<Product> findAllByName(String name);
+    Product findByGtin(String gtin);
 }

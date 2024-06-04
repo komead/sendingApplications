@@ -18,7 +18,7 @@ public class ProductInfo {
     private Product product;
 
     @Column(name = "package_number", nullable = false)
-    private int packageNumber;
+    private String packageNumber;
 
     @ManyToOne
     @JoinColumn(name = "box_id")

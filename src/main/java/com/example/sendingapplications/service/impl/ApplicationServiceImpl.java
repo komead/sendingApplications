@@ -22,4 +22,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     public List<Application> getAll() {
         return applicationRepository.findAll();
     }
+
+    @Override
+    public List<Application> getAllByCompleted(boolean completed) {
+        return applicationRepository.getAllByCompleted(completed);
+    }
+
+    @Override
+    public void changeStatus(String number) {
+        Application application = applicationRepository.findByNumber(number);
+        application.setCompleted(true);
+        applicationRepository.save(application);
+    }
 }
