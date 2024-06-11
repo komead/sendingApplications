@@ -3,7 +3,6 @@ package com.example.sendingapplications.transformers;
 import com.example.sendingapplications.dto.ApplicationDto;
 import com.example.sendingapplications.entity.Application;
 import com.example.sendingapplications.entity.ApplicationDetails;
-import lombok.Data;
 
 public class ApplicationTransformer {
     public ApplicationDto toDto(Application application) {

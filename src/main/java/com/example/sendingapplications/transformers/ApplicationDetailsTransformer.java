@@ -2,7 +2,6 @@ package com.example.sendingapplications.transformers;
 
 import com.example.sendingapplications.dto.ProductForApplicationDto;
 import com.example.sendingapplications.entity.ApplicationDetails;
-import lombok.Data;
 
 public class ApplicationDetailsTransformer {
     public ProductForApplicationDto toProductForApplicationDto(ApplicationDetails applicationDetails) {

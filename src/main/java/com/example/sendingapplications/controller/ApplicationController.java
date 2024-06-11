@@ -18,13 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ApplicationController {
     private ApplicationService applicationService;
-    private BoxService boxService;
     private ProductService productService;
-
-//    @PutMapping("/new")
-//    public void add(@RequestBody Application application) {
-//        applicationService.add(application);
-//    }
 
     @GetMapping("/all")
     public List<ApplicationDto> getAll() {
@@ -39,8 +33,6 @@ public class ApplicationController {
 
     @PostMapping("/json")
     public void completeApplication(@RequestBody CompletedApplication completedApplication) {
-        System.out.println(completedApplication.getProposal_id());
-
         applicationService.changeStatus(completedApplication.getProposal_id());
 
         List<String> usedBarcodes = new ArrayList<>();

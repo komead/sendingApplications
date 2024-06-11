@@ -19,11 +19,6 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<Application> getAll() {
-        return applicationRepository.findAll();
-    }
-
-    @Override
     public List<Application> getAllByCompleted(boolean completed) {
         return applicationRepository.getAllByCompleted(completed);
     }

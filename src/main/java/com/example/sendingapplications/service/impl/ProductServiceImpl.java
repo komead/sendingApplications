@@ -17,21 +17,6 @@ public class ProductServiceImpl implements ProductService {
     private ProductInfoRepository productInfoRepository;
 
     @Override
-    public boolean barcodeIsExist(String gtin) {
-        return productRepository.existsByGtin(gtin);
-    }
-
-    @Override
-    public List<Product> getAllByName(String name) {
-        return productRepository.findAllByName(name);
-    }
-
-    @Override
-    public List<Product> getAll() {
-        return productRepository.findAll();
-    }
-
-    @Override
     public void setUsed(List<String> used) {
         for (String data : used) {
             List<ProductInfo> infoList = productInfoRepository.findByPackageNumber(data.substring(data.length() - 3));
