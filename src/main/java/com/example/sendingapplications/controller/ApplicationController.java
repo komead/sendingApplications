@@ -2,9 +2,9 @@ package com.example.sendingapplications.controller;
 
 import com.example.sendingapplications.dto.ApplicationDto;
 import com.example.sendingapplications.dto.CompletedApplication;
+import com.example.sendingapplications.dto.ReceivedApplication;
 import com.example.sendingapplications.entity.Application;
 import com.example.sendingapplications.service.ApplicationService;
-import com.example.sendingapplications.service.BoxService;
 import com.example.sendingapplications.service.ProductService;
 import com.example.sendingapplications.transformers.ApplicationTransformer;
 import lombok.AllArgsConstructor;
@@ -39,5 +39,12 @@ public class ApplicationController {
         usedBarcodes.addAll(completedApplication.getGtins());
 
         productService.setUsed(usedBarcodes);
+    }
+
+    @PostMapping("/complete")
+    public void complete(@RequestBody ReceivedApplication receivedApplication) {
+        applicationService.changeStatus(receivedApplication.getNumber());
+
+        productService.useProducts(receivedApplication);
     }
 }
